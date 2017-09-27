@@ -1,7 +1,7 @@
 import re
 
 REGULAR_EXPRESSION = r"(\d+) ?: ?(\d+)(?: +)?-(?: +)?(\d+)? ?:? ?(\d+)"
-
+INPUT_FILE = "test.txt"
 
 
 def getListofMatchesByLine(input_file, pattern):
@@ -46,16 +46,19 @@ def printProblemClips(clipList):
             else:
                 print("problem clip(incomplete):")
                 print clip
-                return False
+                return True
             if s_pg > e_pg:
                 print("problem clip(starts after it ends):")
                 print clips
-                return False
+                return True
             if s_ln > 25 or e_ln > 25:
                 print("problem clip(line number too high):")
                 print clip
-                return False
-    return True
+                return True
+    return False
+
+if not printProblemClips(getListofMatchesByLine(INPUT_FILE, REGULAR_EXPRESSION)):
+    printClipList(getListofMatchesByLine(INPUT_FILE, REGULAR_EXPRESSION))
 
 
 
