@@ -1,5 +1,7 @@
 #project specific:
 *.txt
+.vscode/
+.gitignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
